@@ -1,0 +1,38 @@
+{
+	"variables": [],
+	"info": {
+		"name": "play-api-proxy-tests",
+		"_postman_id": "0fb01571-8728-28e1-ab8b-56bbf87cebbf",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Try to forward to self",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 400\"] = responseCode.code === 400;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{localhost}}",
+				"method": "POST",
+				"header": [
+					{
+						"key": "api-forward-url",
+						"value": "{{localhost}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
