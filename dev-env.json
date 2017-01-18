@@ -1,6 +1,6 @@
 {
-  "id": "12b1445c-36a7-581e-6b67-e823e052d95b",
-  "name": "envs",
+  "id": "e7de7de3-7a11-6142-e62d-0470c0346d31",
+  "name": "dev",
   "values": [
     {
       "key": "env",
@@ -9,8 +9,8 @@
       "enabled": true
     }
   ],
-  "timestamp": 1484707629093,
+  "timestamp": 1484708315571,
   "_postman_variable_scope": "environment",
-  "_postman_exported_at": "2017-01-18T02:48:35.303Z",
+  "_postman_exported_at": "2017-01-18T03:03:08.549Z",
   "_postman_exported_using": "Postman/4.9.3"
 }
