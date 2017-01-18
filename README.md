@@ -1,4 +1,4 @@
-Automated API Tests for (play-api-proxy)[https://github.com/joeystevens00/play-api-proxy]
+Automated API Tests for [play-api-proxy](https://github.com/joeystevens00/play-api-proxy)
 
 To run
 
