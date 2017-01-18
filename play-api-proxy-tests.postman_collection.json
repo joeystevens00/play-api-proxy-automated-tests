@@ -20,12 +20,12 @@
 				}
 			],
 			"request": {
-				"url": "{{localhost}}",
+				"url": "{{env}}",
 				"method": "POST",
 				"header": [
 					{
 						"key": "api-forward-url",
-						"value": "{{localhost}}",
+						"value": "{{env}}",
 						"description": ""
 					}
 				],
