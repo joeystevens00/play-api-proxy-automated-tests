@@ -3,5 +3,5 @@ Automated API Tests for [play-api-proxy](https://github.com/joeystevens00/play-a
 To run
 
 ```
-newman run play-api-proxy-tests.postman_collection.json -e envs.postman_environment.json
+newman run play-api-proxy-tests.postman_collection.json -e dev-env.json
 ```
