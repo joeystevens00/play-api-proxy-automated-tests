@@ -3,11 +3,12 @@
 	"info": {
 		"name": "play-api-proxy-tests",
 		"_postman_id": "0fb01571-8728-28e1-ab8b-56bbf87cebbf",
+		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Try to forward to self",
+			"name": "Try to forward to self using header",
 			"event": [
 				{
 					"listen": "test",
@@ -30,6 +31,349 @@
 					}
 				],
 				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Forward to Google using header",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"'google' is in body\"] = responseBody.has(\"google\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{env}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-forward-url",
+						"value": "https://www.google.com",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Try to forward to self using param",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 400\"] = responseCode.code === 400;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{env}}",
+				"method": "POST",
+				"header": [
+					{
+						"key": "api-forward-url",
+						"value": "{{env}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Forward to Google using param",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"'google' is in body\"] = responseBody.has(\"google\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{env}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-forward-url",
+						"value": "https://www.google.com",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST to jsonPostTest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Body equals json string\"] = responseBody === \"{\\\"title\\\":\\\"foo\\\",\\\"body\\\":\\\"bar\\\",\\\"userId\\\":1}\";",
+							"",
+							"",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{env}}/jsonPostTest",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\": \"foo\", \"body\": \"bar\", \"userId\": 1}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Forward to jsonPostTest using param",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 400\"] = responseCode.code === 400;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{env}}",
+				"method": "POST",
+				"header": [
+					{
+						"key": "api-forward-url",
+						"value": "{{env}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Forward to jsonPostTest using header",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Body equals json string\"] = responseBody === \"{\\\"title\\\":\\\"foo\\\",\\\"body\\\":\\\"bar\\\",\\\"userId\\\":1}\";",
+							"",
+							"",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{env}}",
+				"method": "POST",
+				"header": [
+					{
+						"key": "api-forward-url",
+						"value": "{{env}}/jsonPostTest",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\":\"foo\",\"body\":\"bar\",\"userId\":1}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET getHeaders",
+			"request": {
+				"url": "{{env}}/getHeaders",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Forward to getHeaders using header",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{env}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-forward-url",
+						"value": "{{env}}/getHeaders",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Forward to getHeaders using header copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{env}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-forward-url",
+						"value": "{{env}}/getHeaders",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Forward to getHeaders using param",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{env}}?api-forward-url={{env}}/getHeaders",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Forward to getHeaders using both",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{env}}?api-forward-url={{env}}/getHeaders",
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-forward-url",
+						"value": "{{env}}/getHeaders",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Forward to jsonPostTest using GET ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Body equals json string\"] = responseBody === \"{\\\"title\\\":\\\"foo\\\",\\\"body\\\":\\\"bar\\\",\\\"userId\\\":1}\";",
+							"",
+							"",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{env}}",
+				"method": "POST",
+				"header": [
+					{
+						"key": "api-forward-url",
+						"value": "{{env}}/jsonPostTest",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"title\":\"foo\",\"body\":\"bar\",\"userId\":1}"
+				},
 				"description": ""
 			},
 			"response": []
